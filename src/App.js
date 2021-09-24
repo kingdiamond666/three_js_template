@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, useRef } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Html, useProgress } from "@react-three/drei";
+import {
+  Environment,
+  OrbitControls,
+  Stars,
+  PerspectiveCamera,
+} from "@react-three/drei";
+import Model from "./NewModel";
+import Overlay from "./Overlay";
 
-function App() {
+// const HtmlBody = () => {
+//   return (
+//     <Html>
+//       <div className="logo-container">
+//         <img className="logo" height="200px" src={clubLogo} />
+//       </div>
+//     </Html>
+//   );
+// };
+
+export default function App() {
+  function Loader() {
+    const { progress } = useProgress();
+    return (
+      <Html className="loader" center>
+        {progress} % loaded
+      </Html>
+    );
+  }
+
+  const overlay = useRef();
+  const myCamera = useRef();
+  const caption = useRef();
+  const scroll = useRef(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Canvas
+        shadows
+        onCreated={(state) => state.events.connect(overlay.current)}
+        raycaster={{
+          computeOffsets: ({ clientX, clientY }) => ({
+            offsetX: clientX,
+            offsetY: clientY,
+          }),
+        }}
+      >
+        <ambientLight intensity={1} />
+        <Suspense fallback={<Loader />}>
+          <PerspectiveCamera ref={myCamera} position={[5, -10, -10]}>
+            <OrbitControls camera={myCamera.current} />
+            <Stars />
+            <Model scroll={scroll} scale={0.4} />
+            <Environment preset="city" />
+          </PerspectiveCamera>
+        </Suspense>
+      </Canvas>
+      <Overlay ref={overlay} caption={caption} scroll={scroll} />
+    </>
   );
 }
-
-export default App;

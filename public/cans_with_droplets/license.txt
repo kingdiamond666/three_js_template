@@ -1,0 +1,8 @@
+Model Information:
+* title:	Cans with Droplets
+* source:	https://sketchfab.com/3d-models/cans-with-droplets-61e818dd2eff4da9b98857c631c30b06
+* author:	ibotpl (https://sketchfab.com/ibotpl)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

@@ -1,14 +1,17 @@
 {
-  "name": "react-three-second",
+  "name": "react_three_first",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^7.8.5",
+    "@react-three/fiber": "^7.0.7",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "three": "^0.132.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -34,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "next-transpile-modules": "^8.0.0"
   }
 }
