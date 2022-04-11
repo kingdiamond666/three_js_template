@@ -15,8 +15,7 @@ export default function Model({ scroll }, ...props) {
   const ref = useRef();
 
   const { nodes, materials } = useGLTF("/cans_with_droplets/scene.gltf");
-  console.log("Group Info");
-  console.log(group);
+
   useFrame(({ clock }) => {
     group.current.rotation.y =
       scroll.current == 1
@@ -31,7 +30,8 @@ export default function Model({ scroll }, ...props) {
     group.current.rotation.x =
       scroll.current == 1 ? 0 : clock.getElapsedTime() / 2;
   });
-  console.log(scroll);
+  console.log(materials);
+  console.log(nodes);
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>

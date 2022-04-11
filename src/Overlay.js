@@ -37,7 +37,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       <div className="dot bg">
         <h1>lacking</h1>
         <h2>
-          The secret sauce the lacked...
+          The secret sauce they lacked...
           <br />
           was analytics.
         </h2>

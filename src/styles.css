@@ -122,3 +122,8 @@ body {
     font-size: 3em;
   }
 }
+.mouse-tracker {
+  background-color: red;
+  height: 10px;
+  width: 10px;
+}

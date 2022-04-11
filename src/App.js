@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, useRef, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Html, useProgress } from "@react-three/drei";
 import {
@@ -9,6 +9,7 @@ import {
 } from "@react-three/drei";
 import Model from "./NewModel";
 import Overlay from "./Overlay";
+import MouseTracker from "./MouseTracker";
 
 // const HtmlBody = () => {
 //   return (
@@ -56,6 +57,7 @@ export default function App() {
           </PerspectiveCamera>
         </Suspense>
       </Canvas>
+
       <Overlay ref={overlay} caption={caption} scroll={scroll} />
     </>
   );
